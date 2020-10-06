@@ -1,6 +1,6 @@
-/**
 // Insert into a Binary Search Tree
 
+/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
