@@ -1,0 +1,26 @@
+void solve(vector<int>& A, vector<vector<int>> &res, int n, int sum, vector<int> &v, int ind)
+    {
+        if(sum == n)
+        {
+            res.push_back(v);
+            return;
+        }
+        
+        for(int i=ind; i<A.size(); i++)
+        {
+            if(sum + A[i] > n)
+                return;
+            
+            v.push_back(A[i]);
+            solve(A,res,n,sum+A[i],v,i);
+            v.pop_back();
+        }
+    }
+        
+    vector<vector<int>> combinationSum(vector<int>& A, int n) {
+        vector<vector<int>> res;
+        sort(A.begin(),A.end());
+        vector<int> v;
+        solve(A,res,n,0,v,0);
+        return res;
+    }
